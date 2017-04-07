@@ -7,6 +7,10 @@ spec:
   - port: 80
     targetPort: 8081
     protocol: TCP
+    name: http
+  - port: 50051
+    targetPort: 8082
+    protocol: TCP
     name: http2
   selector:
     app: move
@@ -16,12 +20,15 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: move-deployment
+  labels:
+      commit: ${WERCKER_GIT_COMMIT}
 spec:
   replicas: 1
   template:
     metadata:
       labels:
         app: move
+        commit: ${WERCKER_GIT_COMMIT}
     spec:
       containers:
       # [START esp]
@@ -39,7 +46,6 @@ spec:
           - containerPort: 8081
           - containerPort: 8082
       - name: move-grpc-server
-        image: flowup/moveio-server
-        imagePullPolicy: Always
+        image: ${DOCKERHUB_REPO}:${WERCKER_GIT_COMMIT}
         ports:
           - containerPort: 50051

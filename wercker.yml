@@ -16,9 +16,9 @@ build:
 
       # Build the project
       - script:
-            name: go build
-            code: |
-              go build cmd/server/main.go
+          name: go build
+          code: |
+            go build cmd/server/main.go
 
 deploy-staging:
     steps:
@@ -31,4 +31,16 @@ deploy-staging:
           ports: "50051"
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD
-          repository: $DOCKERHUB_REPO   
+          repository: $DOCKERHUB_REPO
+
+      - bash-template:
+          cwd: ${WERCKER_SOURCE_DIR}/deployment/k8s
+
+      - kubectl:
+          name: deploy to kubernetes
+          server: $KUBERNETES_MASTER
+          username: $KUBERNETES_USERNAME
+          password: $KUBERNETES_PASSWORD
+          insecure-skip-tls-verify: true
+          command: apply -f deployment/k8s/
+
