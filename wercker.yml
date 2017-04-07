@@ -20,10 +20,12 @@ build:
             code: |
               go build cmd/server/main.go
 
+deploy-staging:
+    steps:
       # Take our tested application revision and its dependencies, bake it in to a
       # Docker image, and push to Docker Hub.
       - internal/docker-push:
-          entrypoint: main
+          entrypoint: ./main
           working-dir: $WERCKER_ROOT
           tag: $WERCKER_GIT_COMMIT
           ports: "50051"
