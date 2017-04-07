@@ -5,5 +5,8 @@ all:
 server:
 	docker-compose up server
 
-devserver:
+dev:
 	docker-compose up devserver
+
+test:
+	docker-compose up test

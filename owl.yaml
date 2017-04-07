@@ -1,0 +1,7 @@
+run: "go run cmd/server/main.go"
+debounce: 50
+verbose: true
+ignore:
+ - "vendor"
+ - "bin"
+filter: "go$"

@@ -2,8 +2,21 @@ version: '2'
 services:
   server:
     build: .
-    command: bash -c "ls"
+    command: bash -c "go run cmd/server/main.go"
+    volumes:
+      - .:/app:Z
+    working_dir: /app
   devserver:
     build: .
-    command: bash -c "ls"
-    
+    command: bash -c "owl"
+    volumes:
+      - .:/app:Z
+    working_dir: /app
+  test:
+    build: .
+    command: bash -c "goconvey -host='0.0.0.0'"
+    volumes:
+      - .:/app:Z
+    working_dir: /app
+    ports:
+      - "8080:8080"
