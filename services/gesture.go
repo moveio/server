@@ -5,7 +5,6 @@ import (
 	"gopkg.in/mgo.v2"
 	"golang.org/x/net/context"
 	"gopkg.in/mgo.v2/bson"
-	"fmt"
 )
 
 type GestureServer struct {
@@ -35,7 +34,7 @@ func (s *GestureServer) GetGesture(ctx context.Context, in *proto.Gesture) (*pro
 
 func (s *GestureServer) GetAllGesture(ctx context.Context, in *proto.Gesture) (*proto.Gestures, error) {
 	gestures := proto.Gestures{}
-	err := s.GestureCol.Find(bson.M{"userid":in.UserId}).All(&gestures.Gestures)
+	err := s.GestureCol.Find(bson.M{"userid": in.UserId}).All(&gestures.Gestures)
 	if err != nil {
 		return nil, err
 	}

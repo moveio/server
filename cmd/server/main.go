@@ -39,7 +39,6 @@ func main() {
 	/*db.C("pipelines").RemoveAll(nil)
 	db.C("gesture").RemoveAll(nil)*/
 
-
 	pipelinesCol := db.C("pipelines")
 	gestureCol := db.C("gesture")
 
@@ -52,6 +51,7 @@ func main() {
 
 	proto.RegisterPipelinesServServer(s, &services.PipelineServer{PipelineCol: pipelinesCol, GestureCol: gestureCol})
 	proto.RegisterGesturesServServer(s, &services.GestureServer{PipelineCol: pipelinesCol, GestureCol: gestureCol})
+	proto.RegisterRequestGestureServServer(s, &services.RequestGestureServer{PipelineCol: pipelinesCol, GestureCol: gestureCol})
 
 	reflection.Register(s)
 	if err := s.Serve(lis); err != nil {

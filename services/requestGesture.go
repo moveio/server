@@ -6,13 +6,13 @@ import (
 	proto "github.com/moveio/server/moveio/protobuf"
 )
 
-type RequestGesture struct {
+type RequestGestureServer struct {
 	PipelineCol *mgo.Collection
 	GestureCol  *mgo.Collection
 }
 
 
-func (s *RequestGesture) PostGesture(ctx context.Context, in *proto.GestureMessage) (*proto.GestureMessage, error) {
+func (s *RequestGestureServer) PostGesture(ctx context.Context, in *proto.GestureMessage) (*proto.GestureMessage, error) {
 
 
 	return in, nil

@@ -113,7 +113,7 @@ service PipelinesServ {
 
 service RequestGestureServ {
 
-    rpc PostGesture (GestureMessage) returns (Pipeline) {
+    rpc PostGesture (GestureMessage) returns (GestureMessage) {
         option (google.api.http) = {
 			post: "/request"
 			body: "*"
