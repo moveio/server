@@ -1,5 +1,14 @@
 package: github.com/moveio/server
 import:
+- package: github.com/golang/protobuf
+  subpackages:
+  - proto
+- package: golang.org/x/net
+  subpackages:
+  - context
+- package: google.golang.org/genproto
+  subpackages:
+  - googleapis/api/annotations
 - package: google.golang.org/grpc
   subpackages:
   - reflection
