@@ -55,6 +55,18 @@ service Gestures {
 			get: "/gesture/{id}"
 		};
     }
+
+    rpc GetAllGesture (Gesture) returns (Gesture) {
+        option (google.api.http) = {
+			get: "/gesture"
+		};
+    }
+
+    rpc DeleteGesture (Gesture) returns (Gesture) {
+        option (google.api.http) = {
+			delete: "/gesture/{id}"
+		};
+    }
 }
 
 service Pipelines {
@@ -69,6 +81,18 @@ service Pipelines {
     rpc GetPipeline (Pipeline) returns (Pipeline) {
         option (google.api.http) = {
 			get: "/pipeline/{id}"
+		};
+    }
+
+    rpc GetAllPipeline (Pipeline) returns (Pipeline) {
+        option (google.api.http) = {
+			get: "/pipeline"
+		};
+    }
+
+    rpc DeletePipeline (Pipeline) returns (Pipeline) {
+        option (google.api.http) = {
+			delete: "/pipeline/{id}"
 		};
     }
 }
