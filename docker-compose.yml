@@ -1,0 +1,9 @@
+version: '2'
+services:
+  server:
+    build: .
+    command: bash -c "ls"
+  devserver:
+    build: .
+    command: bash -c "ls"
+    
