@@ -34,7 +34,11 @@ func main() {
 	//defer session.Close()
 	fmt.Print("connected to db")
 
-	db := session.DB("store")
+	db := session.DB("moveio")
+
+	/*db.C("pipelines").RemoveAll(nil)
+	db.C("gesture").RemoveAll(nil)*/
+
 
 	pipelinesCol := db.C("pipelines")
 	gestureCol := db.C("gesture")
@@ -46,8 +50,8 @@ func main() {
 
 	s := grpc.NewServer()
 
-	proto.RegisterPipelinesServer(s, &services.PipelineServer{PipelineCol: pipelinesCol, GestureCol: gestureCol})
-	proto.RegisterGesturesServer(s, &services.GestureServer{PipelineCol: pipelinesCol, GestureCol: gestureCol})
+	proto.RegisterPipelinesServServer(s, &services.PipelineServer{PipelineCol: pipelinesCol, GestureCol: gestureCol})
+	proto.RegisterGesturesServServer(s, &services.GestureServer{PipelineCol: pipelinesCol, GestureCol: gestureCol})
 
 	reflection.Register(s)
 	if err := s.Serve(lis); err != nil {

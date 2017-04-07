@@ -18,6 +18,20 @@ message Gesture {
     string description = 2;
     string meta = 3;
     string name = 4;
+    string user_id = 5;
+}
+
+message Gestures {
+    repeated Gesture gestures = 1;
+}
+
+message Pipelines {
+    repeated Pipeline pipelines = 1;
+}
+
+message GestureMessage {
+    string user_id = 1;
+    string meta = 2;
 }
 
 message Hook {
@@ -41,7 +55,7 @@ service Auths {
 }
 
 
-service Gestures {
+service GesturesServ {
 
     rpc CreateGesture (Gesture) returns (Gesture) {
         option (google.api.http) = {
@@ -56,7 +70,7 @@ service Gestures {
 		};
     }
 
-    rpc GetAllGesture (Gesture) returns (Gesture) {
+    rpc GetAllGesture (Gesture) returns (Gestures) {
         option (google.api.http) = {
 			get: "/gesture"
 		};
@@ -69,7 +83,7 @@ service Gestures {
     }
 }
 
-service Pipelines {
+service PipelinesServ {
 
     rpc CreatePipeline (Pipeline) returns (Pipeline) {
         option (google.api.http) = {
@@ -84,7 +98,7 @@ service Pipelines {
 		};
     }
 
-    rpc GetAllPipeline (Pipeline) returns (Pipeline) {
+    rpc GetAllPipeline (Pipeline) returns (Pipelines) {
         option (google.api.http) = {
 			get: "/pipeline"
 		};
@@ -96,4 +110,15 @@ service Pipelines {
 		};
     }
 }
+
+service RequestGestureServ {
+
+    rpc PostGesture (GestureMessage) returns (Pipeline) {
+        option (google.api.http) = {
+			post: "/request"
+			body: "*"
+		};
+    }
+}
+
 

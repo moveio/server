@@ -46,11 +46,11 @@ func run() error {
 	mux := runtime.NewServeMux()
 
 	opts := []grpc.DialOption{grpc.WithInsecure()}
-	err := proto.RegisterGesturesHandlerFromEndpoint(ctx, mux, *echoEndpoint, opts)
+	err := proto.RegisterGesturesServHandlerFromEndpoint(ctx, mux, *echoEndpoint, opts)
 	if err != nil {
 		return err
 	}
-	err = proto.RegisterPipelinesHandlerFromEndpoint(ctx, mux, *echoEndpoint, opts)
+	err = proto.RegisterPipelinesServHandlerFromEndpoint(ctx, mux, *echoEndpoint, opts)
 	if err != nil {
 		return err
 	}

@@ -40,7 +40,7 @@ func request_Auths_Auth_0(ctx context.Context, marshaler runtime.Marshaler, clie
 
 }
 
-func request_Gestures_CreateGesture_0(ctx context.Context, marshaler runtime.Marshaler, client GesturesClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_GesturesServ_CreateGesture_0(ctx context.Context, marshaler runtime.Marshaler, client GesturesServClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq Gesture
 	var metadata runtime.ServerMetadata
 
@@ -54,10 +54,10 @@ func request_Gestures_CreateGesture_0(ctx context.Context, marshaler runtime.Mar
 }
 
 var (
-	filter_Gestures_GetGesture_0 = &utilities.DoubleArray{Encoding: map[string]int{"id": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_GesturesServ_GetGesture_0 = &utilities.DoubleArray{Encoding: map[string]int{"id": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_Gestures_GetGesture_0(ctx context.Context, marshaler runtime.Marshaler, client GesturesClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_GesturesServ_GetGesture_0(ctx context.Context, marshaler runtime.Marshaler, client GesturesServClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq Gesture
 	var metadata runtime.ServerMetadata
 
@@ -79,7 +79,7 @@ func request_Gestures_GetGesture_0(ctx context.Context, marshaler runtime.Marsha
 		return nil, metadata, err
 	}
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_Gestures_GetGesture_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_GesturesServ_GetGesture_0); err != nil {
 		return nil, metadata, grpc.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -89,14 +89,14 @@ func request_Gestures_GetGesture_0(ctx context.Context, marshaler runtime.Marsha
 }
 
 var (
-	filter_Gestures_GetAllGesture_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_GesturesServ_GetAllGesture_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_Gestures_GetAllGesture_0(ctx context.Context, marshaler runtime.Marshaler, client GesturesClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_GesturesServ_GetAllGesture_0(ctx context.Context, marshaler runtime.Marshaler, client GesturesServClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq Gesture
 	var metadata runtime.ServerMetadata
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_Gestures_GetAllGesture_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_GesturesServ_GetAllGesture_0); err != nil {
 		return nil, metadata, grpc.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -106,10 +106,10 @@ func request_Gestures_GetAllGesture_0(ctx context.Context, marshaler runtime.Mar
 }
 
 var (
-	filter_Gestures_DeleteGesture_0 = &utilities.DoubleArray{Encoding: map[string]int{"id": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_GesturesServ_DeleteGesture_0 = &utilities.DoubleArray{Encoding: map[string]int{"id": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_Gestures_DeleteGesture_0(ctx context.Context, marshaler runtime.Marshaler, client GesturesClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_GesturesServ_DeleteGesture_0(ctx context.Context, marshaler runtime.Marshaler, client GesturesServClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq Gesture
 	var metadata runtime.ServerMetadata
 
@@ -131,7 +131,7 @@ func request_Gestures_DeleteGesture_0(ctx context.Context, marshaler runtime.Mar
 		return nil, metadata, err
 	}
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_Gestures_DeleteGesture_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_GesturesServ_DeleteGesture_0); err != nil {
 		return nil, metadata, grpc.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -140,7 +140,7 @@ func request_Gestures_DeleteGesture_0(ctx context.Context, marshaler runtime.Mar
 
 }
 
-func request_Pipelines_CreatePipeline_0(ctx context.Context, marshaler runtime.Marshaler, client PipelinesClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_PipelinesServ_CreatePipeline_0(ctx context.Context, marshaler runtime.Marshaler, client PipelinesServClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq Pipeline
 	var metadata runtime.ServerMetadata
 
@@ -154,10 +154,10 @@ func request_Pipelines_CreatePipeline_0(ctx context.Context, marshaler runtime.M
 }
 
 var (
-	filter_Pipelines_GetPipeline_0 = &utilities.DoubleArray{Encoding: map[string]int{"id": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_PipelinesServ_GetPipeline_0 = &utilities.DoubleArray{Encoding: map[string]int{"id": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_Pipelines_GetPipeline_0(ctx context.Context, marshaler runtime.Marshaler, client PipelinesClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_PipelinesServ_GetPipeline_0(ctx context.Context, marshaler runtime.Marshaler, client PipelinesServClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq Pipeline
 	var metadata runtime.ServerMetadata
 
@@ -179,7 +179,7 @@ func request_Pipelines_GetPipeline_0(ctx context.Context, marshaler runtime.Mars
 		return nil, metadata, err
 	}
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_Pipelines_GetPipeline_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_PipelinesServ_GetPipeline_0); err != nil {
 		return nil, metadata, grpc.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -189,14 +189,14 @@ func request_Pipelines_GetPipeline_0(ctx context.Context, marshaler runtime.Mars
 }
 
 var (
-	filter_Pipelines_GetAllPipeline_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_PipelinesServ_GetAllPipeline_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_Pipelines_GetAllPipeline_0(ctx context.Context, marshaler runtime.Marshaler, client PipelinesClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_PipelinesServ_GetAllPipeline_0(ctx context.Context, marshaler runtime.Marshaler, client PipelinesServClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq Pipeline
 	var metadata runtime.ServerMetadata
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_Pipelines_GetAllPipeline_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_PipelinesServ_GetAllPipeline_0); err != nil {
 		return nil, metadata, grpc.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -206,10 +206,10 @@ func request_Pipelines_GetAllPipeline_0(ctx context.Context, marshaler runtime.M
 }
 
 var (
-	filter_Pipelines_DeletePipeline_0 = &utilities.DoubleArray{Encoding: map[string]int{"id": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_PipelinesServ_DeletePipeline_0 = &utilities.DoubleArray{Encoding: map[string]int{"id": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_Pipelines_DeletePipeline_0(ctx context.Context, marshaler runtime.Marshaler, client PipelinesClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_PipelinesServ_DeletePipeline_0(ctx context.Context, marshaler runtime.Marshaler, client PipelinesServClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq Pipeline
 	var metadata runtime.ServerMetadata
 
@@ -231,11 +231,24 @@ func request_Pipelines_DeletePipeline_0(ctx context.Context, marshaler runtime.M
 		return nil, metadata, err
 	}
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_Pipelines_DeletePipeline_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_PipelinesServ_DeletePipeline_0); err != nil {
 		return nil, metadata, grpc.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
 	msg, err := client.DeletePipeline(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
+func request_RequestGestureServ_PostGesture_0(ctx context.Context, marshaler runtime.Marshaler, client RequestGestureServClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq GestureMessage
+	var metadata runtime.ServerMetadata
+
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil {
+		return nil, metadata, grpc.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	msg, err := client.PostGesture(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
@@ -309,9 +322,9 @@ var (
 	forward_Auths_Auth_0 = runtime.ForwardResponseMessage
 )
 
-// RegisterGesturesHandlerFromEndpoint is same as RegisterGesturesHandler but
+// RegisterGesturesServHandlerFromEndpoint is same as RegisterGesturesServHandler but
 // automatically dials to "endpoint" and closes the connection when "ctx" gets done.
-func RegisterGesturesHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
+func RegisterGesturesServHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
 	conn, err := grpc.Dial(endpoint, opts...)
 	if err != nil {
 		return err
@@ -331,15 +344,15 @@ func RegisterGesturesHandlerFromEndpoint(ctx context.Context, mux *runtime.Serve
 		}()
 	}()
 
-	return RegisterGesturesHandler(ctx, mux, conn)
+	return RegisterGesturesServHandler(ctx, mux, conn)
 }
 
-// RegisterGesturesHandler registers the http handlers for service Gestures to "mux".
+// RegisterGesturesServHandler registers the http handlers for service GesturesServ to "mux".
 // The handlers forward requests to the grpc endpoint over "conn".
-func RegisterGesturesHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
-	client := NewGesturesClient(conn)
+func RegisterGesturesServHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
+	client := NewGesturesServClient(conn)
 
-	mux.Handle("POST", pattern_Gestures_CreateGesture_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_GesturesServ_CreateGesture_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(ctx)
 		defer cancel()
 		if cn, ok := w.(http.CloseNotifier); ok {
@@ -356,18 +369,18 @@ func RegisterGesturesHandler(ctx context.Context, mux *runtime.ServeMux, conn *g
 		if err != nil {
 			runtime.HTTPError(ctx, outboundMarshaler, w, req, err)
 		}
-		resp, md, err := request_Gestures_CreateGesture_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_GesturesServ_CreateGesture_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Gestures_CreateGesture_0(ctx, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_GesturesServ_CreateGesture_0(ctx, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Gestures_GetGesture_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_GesturesServ_GetGesture_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(ctx)
 		defer cancel()
 		if cn, ok := w.(http.CloseNotifier); ok {
@@ -384,18 +397,18 @@ func RegisterGesturesHandler(ctx context.Context, mux *runtime.ServeMux, conn *g
 		if err != nil {
 			runtime.HTTPError(ctx, outboundMarshaler, w, req, err)
 		}
-		resp, md, err := request_Gestures_GetGesture_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_GesturesServ_GetGesture_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Gestures_GetGesture_0(ctx, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_GesturesServ_GetGesture_0(ctx, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Gestures_GetAllGesture_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_GesturesServ_GetAllGesture_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(ctx)
 		defer cancel()
 		if cn, ok := w.(http.CloseNotifier); ok {
@@ -412,18 +425,18 @@ func RegisterGesturesHandler(ctx context.Context, mux *runtime.ServeMux, conn *g
 		if err != nil {
 			runtime.HTTPError(ctx, outboundMarshaler, w, req, err)
 		}
-		resp, md, err := request_Gestures_GetAllGesture_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_GesturesServ_GetAllGesture_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Gestures_GetAllGesture_0(ctx, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_GesturesServ_GetAllGesture_0(ctx, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("DELETE", pattern_Gestures_DeleteGesture_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("DELETE", pattern_GesturesServ_DeleteGesture_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(ctx)
 		defer cancel()
 		if cn, ok := w.(http.CloseNotifier); ok {
@@ -440,14 +453,14 @@ func RegisterGesturesHandler(ctx context.Context, mux *runtime.ServeMux, conn *g
 		if err != nil {
 			runtime.HTTPError(ctx, outboundMarshaler, w, req, err)
 		}
-		resp, md, err := request_Gestures_DeleteGesture_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_GesturesServ_DeleteGesture_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Gestures_DeleteGesture_0(ctx, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_GesturesServ_DeleteGesture_0(ctx, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -455,28 +468,28 @@ func RegisterGesturesHandler(ctx context.Context, mux *runtime.ServeMux, conn *g
 }
 
 var (
-	pattern_Gestures_CreateGesture_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"gesture"}, ""))
+	pattern_GesturesServ_CreateGesture_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"gesture"}, ""))
 
-	pattern_Gestures_GetGesture_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"gesture", "id"}, ""))
+	pattern_GesturesServ_GetGesture_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"gesture", "id"}, ""))
 
-	pattern_Gestures_GetAllGesture_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"gesture"}, ""))
+	pattern_GesturesServ_GetAllGesture_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"gesture"}, ""))
 
-	pattern_Gestures_DeleteGesture_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"gesture", "id"}, ""))
+	pattern_GesturesServ_DeleteGesture_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"gesture", "id"}, ""))
 )
 
 var (
-	forward_Gestures_CreateGesture_0 = runtime.ForwardResponseMessage
+	forward_GesturesServ_CreateGesture_0 = runtime.ForwardResponseMessage
 
-	forward_Gestures_GetGesture_0 = runtime.ForwardResponseMessage
+	forward_GesturesServ_GetGesture_0 = runtime.ForwardResponseMessage
 
-	forward_Gestures_GetAllGesture_0 = runtime.ForwardResponseMessage
+	forward_GesturesServ_GetAllGesture_0 = runtime.ForwardResponseMessage
 
-	forward_Gestures_DeleteGesture_0 = runtime.ForwardResponseMessage
+	forward_GesturesServ_DeleteGesture_0 = runtime.ForwardResponseMessage
 )
 
-// RegisterPipelinesHandlerFromEndpoint is same as RegisterPipelinesHandler but
+// RegisterPipelinesServHandlerFromEndpoint is same as RegisterPipelinesServHandler but
 // automatically dials to "endpoint" and closes the connection when "ctx" gets done.
-func RegisterPipelinesHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
+func RegisterPipelinesServHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
 	conn, err := grpc.Dial(endpoint, opts...)
 	if err != nil {
 		return err
@@ -496,15 +509,15 @@ func RegisterPipelinesHandlerFromEndpoint(ctx context.Context, mux *runtime.Serv
 		}()
 	}()
 
-	return RegisterPipelinesHandler(ctx, mux, conn)
+	return RegisterPipelinesServHandler(ctx, mux, conn)
 }
 
-// RegisterPipelinesHandler registers the http handlers for service Pipelines to "mux".
+// RegisterPipelinesServHandler registers the http handlers for service PipelinesServ to "mux".
 // The handlers forward requests to the grpc endpoint over "conn".
-func RegisterPipelinesHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
-	client := NewPipelinesClient(conn)
+func RegisterPipelinesServHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
+	client := NewPipelinesServClient(conn)
 
-	mux.Handle("POST", pattern_Pipelines_CreatePipeline_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_PipelinesServ_CreatePipeline_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(ctx)
 		defer cancel()
 		if cn, ok := w.(http.CloseNotifier); ok {
@@ -521,18 +534,18 @@ func RegisterPipelinesHandler(ctx context.Context, mux *runtime.ServeMux, conn *
 		if err != nil {
 			runtime.HTTPError(ctx, outboundMarshaler, w, req, err)
 		}
-		resp, md, err := request_Pipelines_CreatePipeline_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_PipelinesServ_CreatePipeline_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Pipelines_CreatePipeline_0(ctx, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_PipelinesServ_CreatePipeline_0(ctx, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Pipelines_GetPipeline_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_PipelinesServ_GetPipeline_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(ctx)
 		defer cancel()
 		if cn, ok := w.(http.CloseNotifier); ok {
@@ -549,18 +562,18 @@ func RegisterPipelinesHandler(ctx context.Context, mux *runtime.ServeMux, conn *
 		if err != nil {
 			runtime.HTTPError(ctx, outboundMarshaler, w, req, err)
 		}
-		resp, md, err := request_Pipelines_GetPipeline_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_PipelinesServ_GetPipeline_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Pipelines_GetPipeline_0(ctx, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_PipelinesServ_GetPipeline_0(ctx, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Pipelines_GetAllPipeline_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_PipelinesServ_GetAllPipeline_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(ctx)
 		defer cancel()
 		if cn, ok := w.(http.CloseNotifier); ok {
@@ -577,18 +590,18 @@ func RegisterPipelinesHandler(ctx context.Context, mux *runtime.ServeMux, conn *
 		if err != nil {
 			runtime.HTTPError(ctx, outboundMarshaler, w, req, err)
 		}
-		resp, md, err := request_Pipelines_GetAllPipeline_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_PipelinesServ_GetAllPipeline_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Pipelines_GetAllPipeline_0(ctx, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_PipelinesServ_GetAllPipeline_0(ctx, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("DELETE", pattern_Pipelines_DeletePipeline_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("DELETE", pattern_PipelinesServ_DeletePipeline_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(ctx)
 		defer cancel()
 		if cn, ok := w.(http.CloseNotifier); ok {
@@ -605,14 +618,14 @@ func RegisterPipelinesHandler(ctx context.Context, mux *runtime.ServeMux, conn *
 		if err != nil {
 			runtime.HTTPError(ctx, outboundMarshaler, w, req, err)
 		}
-		resp, md, err := request_Pipelines_DeletePipeline_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_PipelinesServ_DeletePipeline_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Pipelines_DeletePipeline_0(ctx, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_PipelinesServ_DeletePipeline_0(ctx, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -620,21 +633,90 @@ func RegisterPipelinesHandler(ctx context.Context, mux *runtime.ServeMux, conn *
 }
 
 var (
-	pattern_Pipelines_CreatePipeline_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"pipeline"}, ""))
+	pattern_PipelinesServ_CreatePipeline_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"pipeline"}, ""))
 
-	pattern_Pipelines_GetPipeline_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"pipeline", "id"}, ""))
+	pattern_PipelinesServ_GetPipeline_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"pipeline", "id"}, ""))
 
-	pattern_Pipelines_GetAllPipeline_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"pipeline"}, ""))
+	pattern_PipelinesServ_GetAllPipeline_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"pipeline"}, ""))
 
-	pattern_Pipelines_DeletePipeline_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"pipeline", "id"}, ""))
+	pattern_PipelinesServ_DeletePipeline_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"pipeline", "id"}, ""))
 )
 
 var (
-	forward_Pipelines_CreatePipeline_0 = runtime.ForwardResponseMessage
+	forward_PipelinesServ_CreatePipeline_0 = runtime.ForwardResponseMessage
 
-	forward_Pipelines_GetPipeline_0 = runtime.ForwardResponseMessage
+	forward_PipelinesServ_GetPipeline_0 = runtime.ForwardResponseMessage
 
-	forward_Pipelines_GetAllPipeline_0 = runtime.ForwardResponseMessage
+	forward_PipelinesServ_GetAllPipeline_0 = runtime.ForwardResponseMessage
 
-	forward_Pipelines_DeletePipeline_0 = runtime.ForwardResponseMessage
+	forward_PipelinesServ_DeletePipeline_0 = runtime.ForwardResponseMessage
+)
+
+// RegisterRequestGestureServHandlerFromEndpoint is same as RegisterRequestGestureServHandler but
+// automatically dials to "endpoint" and closes the connection when "ctx" gets done.
+func RegisterRequestGestureServHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
+	conn, err := grpc.Dial(endpoint, opts...)
+	if err != nil {
+		return err
+	}
+	defer func() {
+		if err != nil {
+			if cerr := conn.Close(); cerr != nil {
+				grpclog.Printf("Failed to close conn to %s: %v", endpoint, cerr)
+			}
+			return
+		}
+		go func() {
+			<-ctx.Done()
+			if cerr := conn.Close(); cerr != nil {
+				grpclog.Printf("Failed to close conn to %s: %v", endpoint, cerr)
+			}
+		}()
+	}()
+
+	return RegisterRequestGestureServHandler(ctx, mux, conn)
+}
+
+// RegisterRequestGestureServHandler registers the http handlers for service RequestGestureServ to "mux".
+// The handlers forward requests to the grpc endpoint over "conn".
+func RegisterRequestGestureServHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
+	client := NewRequestGestureServClient(conn)
+
+	mux.Handle("POST", pattern_RequestGestureServ_PostGesture_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(ctx)
+		defer cancel()
+		if cn, ok := w.(http.CloseNotifier); ok {
+			go func(done <-chan struct{}, closed <-chan bool) {
+				select {
+				case <-done:
+				case <-closed:
+					cancel()
+				}
+			}(ctx.Done(), cn.CloseNotify())
+		}
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateContext(ctx, req)
+		if err != nil {
+			runtime.HTTPError(ctx, outboundMarshaler, w, req, err)
+		}
+		resp, md, err := request_RequestGestureServ_PostGesture_0(rctx, inboundMarshaler, client, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_RequestGestureServ_PostGesture_0(ctx, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	return nil
+}
+
+var (
+	pattern_RequestGestureServ_PostGesture_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"request"}, ""))
+)
+
+var (
+	forward_RequestGestureServ_PostGesture_0 = runtime.ForwardResponseMessage
 )

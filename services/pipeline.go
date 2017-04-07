@@ -14,7 +14,8 @@ type PipelineServer struct {
 
 
 func (s *PipelineServer) CreatePipeline(ctx context.Context, in *proto.Pipeline) (*proto.Pipeline, error) {
-	// insert to ProjectsCol
+	in.Id = bson.NewObjectId().Hex()
+
 	err := s.PipelineCol.Insert(in)
 	if err != nil {
 		return nil, err
@@ -29,16 +30,16 @@ func (s *PipelineServer) GetPipeline(ctx context.Context, in *proto.Pipeline) (*
 	if err != nil {
 		return nil, err
 	}
-	return in, nil
+	return &pipeline, nil
 }
 
-func (s *PipelineServer) GetAllPipeline(ctx context.Context, in *proto.Pipeline) (*proto.Pipeline, error) {
-	pipelines := []proto.Pipeline{}
-	err := s.PipelineCol.Find(bson.M{}).All(&pipelines)
+func (s *PipelineServer) GetAllPipeline(ctx context.Context, in *proto.Pipeline) (*proto.Pipelines, error) {
+	pipelines := proto.Pipelines{}
+	err := s.PipelineCol.Find(bson.M{}).All(&pipelines.Pipelines)
 	if err != nil {
 		return nil, err
 	}
-	return in, nil
+	return &pipelines, nil
 }
 
 func (s *PipelineServer) DeletePipeline(ctx context.Context, in *proto.Pipeline) (*proto.Pipeline, error) {
