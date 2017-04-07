@@ -1,22 +1,75 @@
 syntax = "proto3";
 
-package moveio;
-
 import "google/api/annotations.proto";
 
-message MoveIORequest {
-    string name = 1;
+message Pipeline {
+    string id = 1;
+    string user_id = 2;
+    string description = 3;
+    repeated Pipeline next = 4;
+    string gesture_id = 5;
+    int64 timeout = 6;
+    string name = 7;
+    string hook_id = 8;
 }
 
-message MoveIOResponse {
-    string response = 1;
+message Gesture {
+    string id = 1;
+    string description = 2;
+    string meta = 3;
+    string name = 4;
 }
 
-service MoveService {
-    rpc Move (MoveIORequest) returns (MoveIOResponse) {
+message Hook {
+    string id = 1;
+    string format = 2;
+    string name = 3;
+    string description = 4;
+}
+
+message Token {
+    string token = 1;
+}
+
+service Auths {
+    rpc Auth (Token) returns (Token) {
         option (google.api.http) = {
-			post: "/move"
+			post: "/auth"
+			body: "*"
+        };
+    }
+}
+
+
+service Gestures {
+
+    rpc CreateGesture (Gesture) returns (Gesture) {
+        option (google.api.http) = {
+			post: "/gesture"
 			body: "*"
 		};
     }
+
+    rpc GetGesture (Gesture) returns (Gesture) {
+        option (google.api.http) = {
+			get: "/gesture/{id}"
+		};
+    }
 }
+
+service Pipelines {
+
+    rpc CreatePipeline (Pipeline) returns (Pipeline) {
+        option (google.api.http) = {
+			post: "/pipeline"
+			body: "*"
+		};
+    }
+
+    rpc GetPipeline (Pipeline) returns (Pipeline) {
+        option (google.api.http) = {
+			get: "/pipeline/{id}"
+		};
+    }
+}
+

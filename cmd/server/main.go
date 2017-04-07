@@ -4,11 +4,14 @@ import (
 	"log"
 	"net"
 
+	mgo "gopkg.in/mgo.v2"
+
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
-	"golang.org/x/net/context"
 
-	pb "github.com/moveio/server/moveio/protobuf"
+	"fmt"
+	"github.com/moveio/server/services"
+	proto "github.com/moveio/server/moveio/protobuf"
 )
 
 const (
@@ -16,14 +19,25 @@ const (
 )
 
 type Server struct {
-
 }
 
-func (s Server) Move(ctx context.Context, req *pb.MoveIORequest) (*pb.MoveIOResponse, error) {
-	return &pb.MoveIOResponse{Response: "Hello " + req.Name + "!"}, nil
-}
+const (
+	user = "moveio"
+	pass = "moveioteam"
+)
 
 func main() {
+	fmt.Println("starting server")
+
+	session, err := mgo.Dial("mongodb://" + user + ":" + pass + "@ds155150.mlab.com:55150/moveio")
+
+	//defer session.Close()
+	fmt.Print("connected to db")
+
+	db := session.DB("store")
+
+	pipelinesCol := db.C("pipelines")
+	gestureCol := db.C("gesture")
 
 	lis, err := net.Listen("tcp", port)
 	if err != nil {
@@ -32,8 +46,12 @@ func main() {
 
 	s := grpc.NewServer()
 
+	proto.RegisterPipelinesServer(s, &services.PipelineServer{PipelineCol: pipelinesCol, GestureCol: gestureCol})
+	proto.RegisterGesturesServer(s, &services.GestureServer{PipelineCol: pipelinesCol, GestureCol: gestureCol})
+
 	reflection.Register(s)
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
 	}
+
 }

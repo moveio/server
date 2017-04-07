@@ -43,3 +43,14 @@ usage:
   # ListShelves methods can be called without an API Key.
   - selector: "*"
     allow_unregistered_calls: true
+
+authentication:
+  providers:
+  - id: auth0_jwk
+    # Replace YOUR-ACCOUNT-NAME with your service account's email address.
+    issuer: https://moveio.auth0.com/
+    jwks_uri: "https://moveio.auth0.com/.well-known/jwks.json"
+  rules:
+  - selector: "*"
+    requirements:
+      - provider_id: auth0_jwk
