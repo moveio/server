@@ -6,11 +6,22 @@ import (
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
+	"golang.org/x/net/context"
+
+	pb "github.com/moveio/server/moveio/protobuf"
 )
 
 const (
 	port = ":50051"
 )
+
+type Server struct {
+
+}
+
+func (s Server) Move(ctx context.Context, req *pb.MoveIORequest) (*pb.MoveIOResponse, error) {
+	return &pb.MoveIOResponse{Response: "Hello " + req.Name + "!"}, nil
+}
 
 func main() {
 

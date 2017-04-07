@@ -10,3 +10,7 @@ dev:
 
 test:
 	docker-compose up test
+
+grpc:
+	protoc --include_imports --include_source_info -I${GAPIS} protobuf/move.proto  --proto_path protobuf/  --descriptor_set_out deployment/endpoint/move.pb
+	protoc -I/usr/local/include -I. -I${GOPATH}/src -I${GAPIS} --go_out=plugins=grpc:moveio protobuf/move.proto
