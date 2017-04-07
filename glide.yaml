@@ -1,0 +1,5 @@
+package: github.com/moveio/server
+import:
+- package: google.golang.org/grpc
+  subpackages:
+  - reflection
