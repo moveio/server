@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: move-service
+spec:
+  ports:
+  - port: 80
+    targetPort: 8081
+    protocol: TCP
+    name: http2
+  selector:
+    app: move
+  type: LoadBalancer
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: move-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: move
+    spec:
+      containers:
+      # [START esp]
+      - name: esp
+        image: gcr.io/endpoints-release/endpoints-runtime:1
+        args: [
+          "--http_port", "8081",
+          "--http2_port", "8082",
+          "-a", "grpc://127.0.0.1:50051",
+          "-s", "move.endpoints.CLOUD_PROJECT.cloud.goog",
+          "-v", "ENDPOINT_DEPLOY_VERSION",
+        ]
+      # [END esp]
+        ports:
+          - containerPort: 8081
+          - containerPort: 8082
+      - name: move-grpc-server
+        image: flowup/moveio-server
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 50051

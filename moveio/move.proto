@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package moveio;
+
+import "google/api/annotations.proto";
+
+message MoveIORequest {
+    string name = 1;
+}
+
+message MoveIOResponse {
+    string response = 1;
+}
+
+service MoveService {
+    rpc Move (MoveIORequest) returns (MoveIOResponse) {
+        option (google.api.http) = {
+			post: "/move"
+			body: "*"
+		};
+    }
+}

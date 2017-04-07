@@ -1,0 +1,32 @@
+box: golang
+
+build:
+    steps:
+      - setup-go-workspace
+      - script:
+          name: Install glide
+          code: |
+            go get -u github.com/Masterminds/glide
+
+      # Gets the dependencies
+      - script:
+          name: Install dependencies - glide install
+          code: |
+            glide install
+
+      # Build the project
+      - script:
+            name: go build
+            code: |
+              go build cmd/server/main.go
+
+      # Take our tested application revision and its dependencies, bake it in to a
+      # Docker image, and push to Docker Hub.
+      - internal/docker-push:
+          entrypoint: main
+          working-dir: $WERCKER_ROOT
+          tag: $WERCKER_GIT_COMMIT
+          ports: "50051"
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_PASSWORD
+          repository: $DOCKERHUB_REPO   
