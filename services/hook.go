@@ -51,3 +51,10 @@ func (s *HookServer) GetAllHook(ctx context.Context, in *proto.Hook) (*proto.Hoo
 }
 
 
+func (s *HookServer) DeleteHook(ctx context.Context, in *proto.Hook) (*proto.Hook, error) {
+	err := s.HookCol.Remove(bson.M{"id": in.Id})
+	if err != nil {
+		return nil, err
+	}
+	return &proto.Hook{}, nil
+}

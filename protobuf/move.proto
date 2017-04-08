@@ -160,4 +160,10 @@ service HookServ {
 			get: "/hook"
 		};
     }
+
+    rpc DeleteHook (Hook) returns (Hook) {
+        option (google.api.http) = {
+			delete: "/hook/{id}"
+		};
+    }
 }
