@@ -10,6 +10,7 @@ import (
 type GestureServer struct {
 	PipelineCol *mgo.Collection
 	GestureCol  *mgo.Collection
+	HookCol     *mgo.Collection
 }
 
 func (s *GestureServer) CreateGesture(ctx context.Context, in *proto.Gesture) (*proto.Gesture, error) {

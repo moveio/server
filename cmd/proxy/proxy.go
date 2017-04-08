@@ -61,6 +61,16 @@ func run() error {
 		return err
 	}
 
+	err = proto.RegisterRequestGestureServHandlerFromEndpoint(ctx, mux, *echoEndpoint, opts)
+	if err != nil {
+		return err
+	}
+
+	err = proto.RegisterHookServHandlerFromEndpoint(ctx, mux, *echoEndpoint, opts)
+	if err != nil {
+		return err
+	}
+
 	fmt.Println("Running...")
 	return http.ListenAndServe(":8080", allowCORS(mux))
 }

@@ -29,6 +29,10 @@ message Pipelines {
     repeated Pipeline pipelines = 1;
 }
 
+message Hooks {
+    repeated Hook hooks = 1;
+}
+
 message GestureMessage {
     string user_id = 1;
     string meta = 2;
@@ -36,9 +40,11 @@ message GestureMessage {
 
 message Hook {
     string id = 1;
-    string format = 2;
+    string message = 2;
     string name = 3;
     string description = 4;
+    string address = 5;
+    string user_id = 6;
 }
 
 message Token {
@@ -121,4 +127,24 @@ service RequestGestureServ {
     }
 }
 
+service HookServ {
 
+    rpc CreateHook (Hook) returns (Hook) {
+        option (google.api.http) = {
+			post: "/hook"
+			body: "*"
+		};
+    }
+
+    rpc GetHook (Hook) returns (Hook) {
+        option (google.api.http) = {
+			get: "/hook/{id}"
+		};
+    }
+
+    rpc GetAllHook (Hook) returns (Hooks) {
+        option (google.api.http) = {
+			get: "/hook"
+		};
+    }
+}

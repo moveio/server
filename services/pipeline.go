@@ -10,6 +10,7 @@ import (
 type PipelineServer struct {
 	PipelineCol *mgo.Collection
 	GestureCol *mgo.Collection
+	HookCol     *mgo.Collection
 }
 
 

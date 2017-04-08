@@ -37,10 +37,13 @@ func main() {
 	db := session.DB("moveio")
 
 	/*db.C("pipelines").RemoveAll(nil)
-	db.C("gesture").RemoveAll(nil)*/
+	db.C("gesture").RemoveAll(nil)
+	db.C("hook").RemoveAll(nil)*/
+
 
 	pipelinesCol := db.C("pipelines")
 	gestureCol := db.C("gesture")
+	hookCol := db.C("hook")
 
 	lis, err := net.Listen("tcp", port)
 	if err != nil {
@@ -49,9 +52,10 @@ func main() {
 
 	s := grpc.NewServer()
 
-	proto.RegisterPipelinesServServer(s, &services.PipelineServer{PipelineCol: pipelinesCol, GestureCol: gestureCol})
-	proto.RegisterGesturesServServer(s, &services.GestureServer{PipelineCol: pipelinesCol, GestureCol: gestureCol})
-	proto.RegisterRequestGestureServServer(s, &services.RequestGestureServer{PipelineCol: pipelinesCol, GestureCol: gestureCol})
+	proto.RegisterPipelinesServServer(s, &services.PipelineServer{PipelineCol: pipelinesCol, GestureCol: gestureCol, HookCol: hookCol})
+	proto.RegisterGesturesServServer(s, &services.GestureServer{PipelineCol: pipelinesCol, GestureCol: gestureCol, HookCol: hookCol})
+	proto.RegisterRequestGestureServServer(s, &services.RequestGestureServer{PipelineCol: pipelinesCol, GestureCol: gestureCol, HookCol: hookCol})
+	proto.RegisterHookServServer(s, &services.HookServer{PipelineCol: pipelinesCol, GestureCol: gestureCol, HookCol: hookCol})
 
 	reflection.Register(s)
 	if err := s.Serve(lis); err != nil {

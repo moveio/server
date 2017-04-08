@@ -11,6 +11,7 @@ import (
 type RequestGestureServer struct {
 	PipelineCol *mgo.Collection
 	GestureCol  *mgo.Collection
+	HookCol     *mgo.Collection
 }
 
 func (s *RequestGestureServer) PostGesture(ctx context.Context, in *proto.GestureMessage) (*proto.GestureMessage, error) {
@@ -20,7 +21,13 @@ func (s *RequestGestureServer) PostGesture(ctx context.Context, in *proto.Gestur
 		return nil, err
 	}
 
-	fmt.Println(gesture)
+	pipelane := proto.Pipeline{}
+	err = s.PipelineCol.Find(bson.M{"gestureid": gesture.Id, "userid": in.UserId}).One(&pipelane)
+	if err != nil {
+		return nil, err
+	}
+
+	fmt.Println(pipelane)
 
 	return in, nil
 }
