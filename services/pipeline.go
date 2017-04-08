@@ -9,10 +9,9 @@ import (
 
 type PipelineServer struct {
 	PipelineCol *mgo.Collection
-	GestureCol *mgo.Collection
+	GestureCol  *mgo.Collection
 	HookCol     *mgo.Collection
 }
-
 
 func (s *PipelineServer) CreatePipeline(ctx context.Context, in *proto.Pipeline) (*proto.Pipeline, error) {
 	in.Id = bson.NewObjectId().Hex()
@@ -49,4 +48,14 @@ func (s *PipelineServer) DeletePipeline(ctx context.Context, in *proto.Pipeline)
 		return nil, err
 	}
 	return &proto.Pipeline{}, nil
+}
+
+func (s *PipelineServer) PutPipeline(ctx context.Context, in *proto.Pipeline) (*proto.Pipeline, error) {
+
+	err := s.PipelineCol.Update(bson.M{"id": in.Id}, bson.M{"$set": &in})
+	if err != nil {
+		return nil, err
+	}
+
+	return nil, nil
 }

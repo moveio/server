@@ -6,11 +6,10 @@ message Pipeline {
     string id = 1;
     string user_id = 2;
     string description = 3;
-    repeated Pipeline next = 4;
-    string gesture_id = 5;
-    int64 timeout = 6;
-    string name = 7;
-    string hook_id = 8;
+    string gesture_id = 4;
+    int64 timeout = 5;
+    string name = 6;
+    string hook_id = 7;
 }
 
 message Gesture {
@@ -107,6 +106,13 @@ service PipelinesServ {
     rpc GetAllPipeline (Pipeline) returns (Pipelines) {
         option (google.api.http) = {
 			get: "/pipeline"
+		};
+    }
+
+    rpc PutPipeline (Pipeline) returns (Pipeline) {
+        option (google.api.http) = {
+			put: "/pipeline/{id}"
+			body: "*"
 		};
     }
 
