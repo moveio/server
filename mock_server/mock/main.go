@@ -16,7 +16,7 @@ func mock(ctx echo.Context) error {
 func main() {
 	e := echo.New()
 
-	e.GET("/mock", mock)
+	e.POST("/mock", mock)
 
 	e.Logger.Fatal(e.Start("0.0.0.0:8081"))
 }

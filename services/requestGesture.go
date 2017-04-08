@@ -6,6 +6,8 @@ import (
 	proto "github.com/moveio/server/moveio/protobuf"
 	"gopkg.in/mgo.v2/bson"
 	"fmt"
+	"net/http"
+	"bytes"
 )
 
 type RequestGestureServer struct {
@@ -29,5 +31,15 @@ func (s *RequestGestureServer) PostGesture(ctx context.Context, in *proto.Gestur
 
 	fmt.Println(pipelane)
 
-	return in, nil
+	hook := proto.Hook{}
+	err = s.HookCol.Find(bson.M{"id": pipelane.HookId, "userid": in.UserId}).One(&hook)
+	if err != nil {
+		return nil, err
+	}
+
+	fmt.Println(hook)
+
+	_, err = http.Post(hook.Address,"text/plain" ,bytes.NewBuffer([]byte(hook.Message)))
+
+	return in, err
 }

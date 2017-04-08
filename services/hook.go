@@ -33,6 +33,14 @@ func (s *HookServer) GetHook(ctx context.Context, in *proto.Hook) (*proto.Hook, 
 	return &gesture, nil
 }
 
+func (s *HookServer) PutHook(ctx context.Context, in *proto.Hook) (*proto.Hook, error) {
+	err := s.HookCol.Update(bson.M{"id": in.Id}, bson.M{"$set": &in})
+	if err != nil {
+		return nil, err
+	}
+	return in, nil
+}
+
 func (s *HookServer) GetAllHook(ctx context.Context, in *proto.Hook) (*proto.Hooks, error) {
 	gestures := proto.Hooks{}
 	err := s.HookCol.Find(bson.M{"userid": in.UserId}).All(&gestures.Hooks)
@@ -41,3 +49,5 @@ func (s *HookServer) GetAllHook(ctx context.Context, in *proto.Hook) (*proto.Hoo
 	}
 	return &gestures, nil
 }
+
+

@@ -142,6 +142,13 @@ service HookServ {
 		};
     }
 
+    rpc PutHook (Hook) returns (Hook) {
+        option (google.api.http) = {
+			put: "/hook/{id}"
+			body: "*"
+		};
+    }
+
     rpc GetAllHook (Hook) returns (Hooks) {
         option (google.api.http) = {
 			get: "/hook"
