@@ -50,7 +50,13 @@ func run() error {
 	if err != nil {
 		return err
 	}
+
 	err = proto.RegisterPipelinesServHandlerFromEndpoint(ctx, mux, *echoEndpoint, opts)
+	if err != nil {
+		return err
+	}
+
+	err = proto.RegisterRequestGestureServHandlerFromEndpoint(ctx, mux, *echoEndpoint, opts)
 	if err != nil {
 		return err
 	}
