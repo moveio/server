@@ -39,7 +39,9 @@ func (s *RequestGestureServer) PostGesture(ctx context.Context, in *proto.Gestur
 
 	fmt.Println(hook)
 
-	_, err = http.Post(hook.Address,"text/plain" ,bytes.NewBuffer([]byte(hook.Message)))
+	res, err := http.Post("http://"+hook.Address, "", bytes.NewBufferString(hook.Message))
+
+	fmt.Println(res)
 
 	return in, err
 }
